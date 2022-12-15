@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>root</title>
+{% endblock %}
+{% block content %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" /> 
+<!-- 
+    {%if good_credentials %}
+    <h2>Home Page {{username}}!</h1>
+    {% else %}
+    <h2>Welcome to the Homepage</h2>
+    {% endif %}
+
+    {% for message in messages %}
+    <div class="display-messages">
+        <h3>{{message.username}} (Age: {{message.age}})</h3>
+        <h3>{{message.text}}</h3>
+        <p>posted at: {{message.created_at}}</p>
+        {%if username == message.username %}
+            <a class="delete-message" href= "/delete_message/{{message.id}}">delete </a>
+            <a class="delete-message" href= "/edit_message/{{message.id}}"> edit </a>
+        {% endif %}
+        <br>
+    </div>
+{% endfor %} -->
+{% endblock %}

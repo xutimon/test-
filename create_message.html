@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Create Message</title>
+{% endblock %}
+{% block content %}
+<h2>Create a message</h2>
+{% if created %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% endif %}
+<form action=/create_message method=POST>
+    <table>
+        <tr><td>post message: </td><td><input class="textfield" type=text name=new_message></td></tr>
+    </table>
+    <input type=submit value='enter'>
+</form>
+{% endblock %}

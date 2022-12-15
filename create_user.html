@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Create an Account</title>
+{% endblock %}
+
+{% block content %}
+{% if good_credentials %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% endif %}
+
+{% if bad_user %}
+Username cannot just be a number!
+{% endif %}
+
+{% if successful %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% endif %}
+
+<h1>Create User</h1>
+<form action=/create_user method=POST>
+    <table>
+    <tr><td>username</td><td><input class="textfield" type=text name=username></td></tr>
+    <tr><td>password</td><td><input class="textfield" type=password name=password1></td></tr>
+    <tr><td>repeat password</td><td><input class="textfield" type=password name=password2></td></tr>
+    </table>
+    <input type=submit value='create user'>
+</form>
+{% if exists %}
+Username already exists. Please try a different username.
+{% endif %}
+{% if wrong_password %}
+<text style="color:red">Passwords do not match. </text>
+{% endif %}
+{% endblock %}

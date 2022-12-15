@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if finished %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% elif not_user %}
+    <h1>Cannot edit someone else's message</h1>
+{% else %}
+    Edit message: <br>
+    <textarea rows="4" cols="50" name="new_message" form="edit">{{text}}</textarea>
+    <form action='/edit_message/{{id}}' method="POST" id="edit">
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+{% endblock %}

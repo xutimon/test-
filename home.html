@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>home</title>
+{% endblock %}
+{% block content %}
+    {%if username %}
+    <h2>Home Page {{username}}!</h1>
+    {% else %}
+    <h2>Welcome to the Homepage</h2>
+    {% endif %}
+    {% for message in messages %}
+    <div style="border: 1px solid black;" class="display-messages">
+        <img src="static/images/{{message.username}}" style="width:100px;height:100px">
+        <h3>{{message.username}}</h3>
+        {%if message.link %}
+            <h4>{{message.text | safe}}</h4>
+        {% else %}  
+        <h4>{{message.text}}</h4>
+        {% endif %}
+        <p>Posted at: {{message.created_at}}</p>
+        {%if username == message.username %}
+            <a href= "/delete_message/{{message.id}}">Delete Message </a>
+            <a href= "/edit_message/{{message.id}}"> Edit Message </a>
+        {% endif %}
+        <br>
+    </div>
+{% endfor %}
+{% endblock %}

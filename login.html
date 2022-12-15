@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login Webpage</h2>
+
+{% if logged_in %}
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% endif %}
+
+{% if bad_credentials %}
+<p class='color:red;'>
+    Username or password is incorrect.
+</p>
+{% endif %}
+{% if good_credentials %}
+<!-- <p class='color:red;'>
+    Success!
+</p> -->
+<meta http-equiv="Refresh" content="0; url='http://127.0.0.1:5000/home'" />
+{% endif %}
+
+<form action='/login' method="POST">
+    <table>
+        <tr>
+            <td>username</td>
+            <td><input type=text name=username></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type=password name=password></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type=submit value='log in'></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
